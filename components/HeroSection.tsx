@@ -34,9 +34,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-12 py-20">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 py-10 sm:py-20">
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
             className="text-center lg:text-left"
           >
             <motion.h1 
-              className="text-5xl lg:text-7xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
@@ -58,12 +58,12 @@ const HeroSection = () => {
             </motion.h1>
             
             <motion.div
-              className="h-16 mb-8"
+              className="h-12 sm:h-16 mb-6 sm:mb-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <p className="text-xl lg:text-2xl text-gray-300">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-300">
                 Saya adalah <span className="text-blue-400 font-semibold">{currentText}</span>
                 <span className="animate-pulse text-blue-400">|</span>
               </p>
@@ -77,7 +77,7 @@ const HeroSection = () => {
             >
               <motion.button
                 onClick={() => scrollToSection('about')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg overflow-hidden"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg overflow-hidden text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -95,7 +95,7 @@ const HeroSection = () => {
               
               <motion.button
                 onClick={() => scrollToSection('projects')}
-                className="group relative px-8 py-4 border-2 border-blue-500 text-blue-400 font-semibold rounded-lg overflow-hidden"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 border-2 border-blue-500 text-blue-400 font-semibold rounded-lg overflow-hidden text-sm sm:text-base"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -118,7 +118,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex justify-center lg:justify-end"
+            className="flex justify-center lg:justify-end order-first lg:order-last"
           >
             <div className="relative">
               <motion.div
@@ -133,7 +133,7 @@ const HeroSection = () => {
               />
               <motion.div
                 whileHover={{ scale: 1.05, rotateY: 15 }}
-                className="relative w-80 h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20"
+                className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl shadow-blue-500/20"
                 style={{ transformStyle: 'preserve-3d' }}
               >
                 <Image

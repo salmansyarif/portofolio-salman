@@ -1,9 +1,11 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const SkillsSection = () => {
   const skills = [
+    // ...skill array yang sudah kamu buat (tidak saya ulang karena terlalu panjang)
+  
     {
       name: 'HTML5',
       icon: (
@@ -149,17 +151,15 @@ const SkillsSection = () => {
     </svg>
   )
 },
-   
-  ];
-
-  const containerVariants = {
+  ]
+    const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -168,19 +168,19 @@ const SkillsSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   return (
-    <section id="skills" className="py-40 px-40">
+    <section id="skills" className="py-24 px-6 sm:px-10 md:px-20 lg:px-40">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl lg:text-5xl font-bold text-center mb-16"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16"
         >
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
             Keahlian & Teknologi
@@ -192,47 +192,48 @@ const SkillsSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 sm:gap-6"
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 y: -10,
-                rotateY: 15
+                rotateY: 15,
               }}
               className="group relative"
             >
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6 h-32 flex flex-col items-center justify-center transition-all duration-300 hover:border-blue-400/40 hover:shadow-lg hover:shadow-blue-500/20">
-                {/* Rotating glow effect */}
+              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-4 sm:p-6 h-28 sm:h-32 flex flex-col items-center justify-center transition-all duration-300 hover:border-blue-400/40 hover:shadow-lg hover:shadow-blue-500/20">
+                {/* Rotating glow */}
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                   className="absolute -inset-1 bg-gradient-to-r from-blue-400/20 via-blue-500/20 to-blue-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 />
-                
-                {/* Skill icon */}
-                <div className="relative z-10 mb-3 group-hover:animate-pulse">
-                  {skill.icon}
+
+                {/* Icon */}
+                <div className="relative z-10 mb-2 sm:mb-3 group-hover:animate-pulse">
+                  {/* Perhatikan: SVG akan otomatis ikut ukurannya */}
+                  <div className="w-10 h-10 sm:w-12 sm:h-12">{skill.icon}</div>
                 </div>
-                
-                {/* Skill name */}
-                <h3 className="relative z-10 text-sm font-medium text-gray-300 group-hover:text-blue-400 transition-colors duration-300 text-center">
+
+                {/* Name */}
+                <h3 className="relative z-10 text-xs sm:text-sm font-medium text-gray-300 group-hover:text-blue-400 transition-colors duration-300 text-center">
                   {skill.name}
                 </h3>
 
-                {/* Particles effect on hover */}
+                {/* Particles */}
                 <div className="absolute inset-0 overflow-hidden rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {[...Array(6)].map((_, i) => (
                     <motion.div
                       key={i}
                       className="absolute w-1 h-1 bg-blue-400 rounded-full"
-                      initial={{ 
-                        x: Math.random() * 100 + '%', 
-                        y: Math.random() * 100 + '%',
-                        opacity: 0
+                      initial={{
+                        x: Math.random() * 100 + "%",
+                        y: Math.random() * 100 + "%",
+                        opacity: 0,
                       }}
                       whileHover={{
                         opacity: [0, 1, 0],
@@ -240,8 +241,8 @@ const SkillsSection = () => {
                         transition: {
                           duration: 2,
                           repeat: Infinity,
-                          delay: i * 0.2
-                        }
+                          delay: i * 0.2,
+                        },
                       }}
                     />
                   ))}

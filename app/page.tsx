@@ -22,10 +22,10 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-x-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-x-hidden w-full">
       <ParticleBackground />
       <Navbar />
-      <main className="relative z-10">
+      <main className="relative z-10 px-4 md:px-6 lg:px-8 max-w-screen-xl mx-auto">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
