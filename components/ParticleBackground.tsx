@@ -32,10 +32,7 @@ const ParticleBackground = () => {
       opacity: number;
       hue: number;
 
-      constructor() {
-        const width = canvas?.width || 0;
-        const height = canvas?.height || 0;
-
+      constructor(width: number, height: number) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
         this.vx = (Math.random() - 0.5) * 0.5;
@@ -45,12 +42,9 @@ const ParticleBackground = () => {
         this.hue = Math.random() * 60 + 200;
       }
 
-      update() {
+      update(width: number, height: number) {
         this.x += this.vx;
         this.y += this.vy;
-
-        const width = canvas?.width || 0;
-        const height = canvas?.height || 0;
 
         if (this.x < 0) this.x = width;
         if (this.x > width) this.x = 0;
@@ -61,12 +55,10 @@ const ParticleBackground = () => {
         this.opacity = Math.max(0.1, Math.min(0.7, this.opacity));
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
-        ctx.fill();
-
         ctx.shadowColor = `hsla(${this.hue}, 70%, 60%, 0.5)`;
         ctx.shadowBlur = 10;
         ctx.fill();
@@ -74,19 +66,18 @@ const ParticleBackground = () => {
       }
     }
 
-    // Create particles
-    const particles: Particle[] = [];
-    const particleCount = Math.min(100, Math.floor(canvas.width * canvas.height / 15000));
+    const width = canvas.width;
+    const height = canvas.height;
 
+    const particles: Particle[] = [];
+    const particleCount = Math.min(100, Math.floor(width * height / 15000));
     for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+      particles.push(new Particle(width, height));
     }
 
-    // Animation loop
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, width, height);
 
-      // Draw connecting lines
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -104,10 +95,9 @@ const ParticleBackground = () => {
         }
       }
 
-      // Update and draw particles
       particles.forEach((particle) => {
-        particle.update();
-        particle.draw();
+        particle.update(width, height);
+        particle.draw(ctx);
       });
 
       requestAnimationFrame(animate);
@@ -128,7 +118,6 @@ const ParticleBackground = () => {
         style={{ background: "transparent" }}
       />
 
-      {/* Additional animated shapes */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {[...Array(6)].map((_, i) => (
           <motion.div
