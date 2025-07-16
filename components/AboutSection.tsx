@@ -11,7 +11,7 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl lg:text-5xl font-bold text-center mb-16"t
+          className="text-4xl lg:text-5xl font-bold text-center mb-16"
         >
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
             Tentang Saya
