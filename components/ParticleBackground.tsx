@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -10,7 +10,7 @@ const ParticleBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     // Set canvas size
@@ -20,7 +20,7 @@ const ParticleBackground = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     // Particle system
     class Particle {
@@ -33,27 +33,30 @@ const ParticleBackground = () => {
       hue: number;
 
       constructor() {
-    // Rekomendasi aman:
-        this.x = Math.random() * (canvas?.width || 0);
-        this.y = Math.random() * (canvas?.height || 0);
+        const width = canvas?.width || 0;
+        const height = canvas?.height || 0;
+
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * 2 + 1;
         this.opacity = Math.random() * 0.5 + 0.2;
-        this.hue = Math.random() * 60 + 200; // Blue spectrum
+        this.hue = Math.random() * 60 + 200;
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Wrap around edges
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        const width = canvas?.width || 0;
+        const height = canvas?.height || 0;
 
-        // Pulse opacity
+        if (this.x < 0) this.x = width;
+        if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        if (this.y > height) this.y = 0;
+
         this.opacity += Math.sin(Date.now() * 0.002 + this.x * 0.01) * 0.002;
         this.opacity = Math.max(0.1, Math.min(0.7, this.opacity));
       }
@@ -64,7 +67,6 @@ const ParticleBackground = () => {
         ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
         ctx.fill();
 
-        // Glow effect
         ctx.shadowColor = `hsla(${this.hue}, 70%, 60%, 0.5)`;
         ctx.shadowBlur = 10;
         ctx.fill();
@@ -103,7 +105,7 @@ const ParticleBackground = () => {
       }
 
       // Update and draw particles
-      particles.forEach(particle => {
+      particles.forEach((particle) => {
         particle.update();
         particle.draw();
       });
@@ -114,7 +116,7 @@ const ParticleBackground = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
     };
   }, []);
 
@@ -123,9 +125,9 @@ const ParticleBackground = () => {
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full pointer-events-none z-0"
-        style={{ background: 'transparent' }}
+        style={{ background: "transparent" }}
       />
-      
+
       {/* Additional animated shapes */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         {[...Array(6)].map((_, i) => (
@@ -136,16 +138,16 @@ const ParticleBackground = () => {
               x: [Math.random() * window.innerWidth, Math.random() * window.innerWidth],
               y: [Math.random() * window.innerHeight, Math.random() * window.innerHeight],
               scale: [1, 1.5, 1],
-              opacity: [0.3, 0.6, 0.3]
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
               duration: 20 + Math.random() * 20,
               repeat: Infinity,
-              ease: "linear"
+              ease: "linear",
             }}
             style={{
               left: Math.random() * window.innerWidth,
-              top: Math.random() * window.innerHeight
+              top: Math.random() * window.innerHeight,
             }}
           />
         ))}
