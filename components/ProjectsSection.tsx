@@ -20,10 +20,10 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: 'Task Management App',
+      title: 'Pemesanan Hotel',
       description: 'Aplikasi manajemen tugas dengan real-time collaboration. Dibangun menggunakan Next.js dan Socket.io.',
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg',
-      technologies: ['Next.js', 'Socket.io', 'PostgreSQL', 'Prisma'],
+      image: '/images/Hotel.png',
+      technologies: ['Laravel', 'Tailwaind', 'Laragon'],
       liveUrl: '#', 
       githubUrl: '#'
     },
