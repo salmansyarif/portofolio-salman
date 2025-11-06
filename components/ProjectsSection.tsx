@@ -15,17 +15,15 @@ const ProjectsSection = () => {
       description: 'Aplikasi web yang memungkinkan pengguna untuk mendata buku, peminjaman, dan pengembalian.',
       image: '/images/serti3.png',
       technologies: ['Laravel','php','Laragon'],
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/salmansyarif/serti-3.git'
     },
     {
       id: 2,
       title: 'Pemesanan Hotel',
       description: 'Aplikasi manajemen tugas dengan real-time collaboration. Dibangun menggunakan Next.js dan Socket.io.',
       image: '/images/Hotel.png',
-      technologies: ['Laravel', 'Tailwaind', 'Laragon'],
-      liveUrl: '#', 
-      githubUrl: '#'
+      technologies: ['Laravel', 'Tailwaind', 'Laragon'], 
+      githubUrl: 'https://github.com/salmansyarif/BNSP1.git'
     },
     {
       id: 3,
@@ -33,8 +31,7 @@ const ProjectsSection = () => {
       description: 'Aplikasi mobile untuk memberikan informasi terkini. Dibangun menggunakan React Native.',
       video: '/video/jakiclone.mp4',
       technologies: ['Rect-native','Android studio'],
-      liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: 'https://github.com/salmansyarif/jaki-clone.git'
     }
   ];
 
