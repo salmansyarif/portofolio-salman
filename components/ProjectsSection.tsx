@@ -20,7 +20,7 @@ const ProjectsSection = () => {
     {
       id: 2,
       title: 'Pemesanan Hotel',
-      description: 'Aplikasi manajemen tugas dengan real-time collaboration. Dibangun menggunakan Next.js dan Socket.io.',
+      description: 'Aplikasi Berbasis Web Untuk Memboking Hotel',
       image: '/images/Hotel.png',
       technologies: ['Laravel', 'Tailwaind', 'Laragon'], 
       githubUrl: 'https://github.com/salmansyarif/BNSP1.git'
@@ -39,7 +39,7 @@ const ProjectsSection = () => {
     {
       id: 4,
       title: 'Landing Page Restaurant',
-      description: 'inisi projek landing page pertama saya yang termasuk dalam sertikom',
+      description: 'ini projek landing page pertama saya yang termasuk dalam sertikom',
       image: '/images/serti1.png',
       technologies: ['Index', 'CSS'],
     },
@@ -52,12 +52,12 @@ const ProjectsSection = () => {
     },
     {
       id: 6,
-      title: 'Cryptocurrency Tracker',
-      description: 'Aplikasi tracking harga cryptocurrency dengan alert system dan portfolio management.',
-      image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg',
+      title: 'Surat Menyurat Sekolah',
+      description: 'Di rancang untuk mengajukan perizinan / penyuratan sekolah',
+      image: '/images/surat.png',
       technologies: ['React Native', 'GraphQL', 'Apollo', 'CoinGecko API'],
-      liveUrl: '#',
-      githubUrl: '#'
+ 
+      githubUrl: 'https://github.com/salmansyarif/system-smsv2.git'
     }
   ];
 
